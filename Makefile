@@ -8,5 +8,5 @@ run-dist: # запуск исполняемого файла
 check-updates: # проверять обновления зависимостей и плагинов
 	sudo ./gradlew dependencyUpdates
 
-
-
+run:
+	sudo ./gradlew run
