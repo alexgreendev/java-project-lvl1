@@ -8,7 +8,7 @@ public abstract class Engine {
     public void runGame(String name) {
 
 
-        for (int count = 1; count <= 3; count++) {
+        for (int count = 1; count < 4; count++) {
             boolean result = true;
             Random random = new Random();
             int x = 1 + random.nextInt(25);
@@ -33,9 +33,10 @@ public abstract class Engine {
                 return;
             }
         }
-    }
 
+    }
 }
+
 
 
 

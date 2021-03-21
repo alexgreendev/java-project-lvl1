@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import hexlet.code.games.CalcGame;
 import hexlet.code.games.EvenGame;
+import hexlet.code.games.GCDGame;
 
 public class App {
     public static void main(String[] args) {
@@ -34,6 +35,7 @@ public class App {
         if (numGame == 3) {
 
             String userName = Cli.userName();
+
             CalcGame calcGame = new CalcGame();
             calcGame.calculator(userName);
 
@@ -43,7 +45,8 @@ public class App {
 
             String userName = Cli.userName();
 
-
+            GCDGame gcdGame = new GCDGame();
+            gcdGame.gcd(userName);
 
         }
 

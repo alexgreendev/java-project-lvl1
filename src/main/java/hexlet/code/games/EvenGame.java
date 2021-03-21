@@ -15,7 +15,7 @@ public class EvenGame extends Engine{
     @Override
     public void runGame(String name) {
 
-        for(int count = 1; count <= 3; count++) {
+        for(int count = 1; count < 4; count++) {
 
             Random random = new Random();
             int x = 1 + random.nextInt(25);
