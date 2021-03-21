@@ -1,13 +1,21 @@
-package hexlet.code;
+package hexlet.code.games;
 
 import java.util.Random;
 import java.util.Scanner;
+import hexlet.code.Engine;
 
-public class EvenGame {
+public class EvenGame extends Engine{
 
-    public void even(String name){
+    public void even(String name) {
 
-        for(int count = 1; count < 5; count++) {
+        System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
+        this.runGame(name);
+
+    }
+    @Override
+    public void runGame(String name) {
+
+        for(int count = 1; count <= 3; count++) {
 
             Random random = new Random();
             int x = 1 + random.nextInt(25);
