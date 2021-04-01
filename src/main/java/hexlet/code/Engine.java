@@ -1,24 +1,36 @@
 package hexlet.code;
 
+
 import java.util.Scanner;
+import java.util.concurrent.Callable;
 
-public abstract class Engine {
-    public abstract String getDescription();
-    public abstract String getQuestion();
-    public abstract String getCorrectAnswer();
 
-    public void runGame(String name) {
-        System.out.println(this.getDescription());
+public class Engine {
+
+    public static <T> void runGame(
+            Callable<String> getDescription,
+            Callable<String> getQuestion,
+            Callable<String> getCorrectAnswer) throws Exception {
+
+        System.out.println("Welcome to the Brain Games! " + "\nMay I have your name? ");
+
+        Scanner console = new Scanner(System.in);
+        String name = console.nextLine();
+
+        String text = name + "\nHello, " + name + "!";
+        System.out.println(text);
+
+        System.out.println(getDescription.call());
 
         for(int count = 1; count < 4; count++) {
-            Scanner console = new Scanner(System.in);
-            System.out.println("Question: " + this.getQuestion());
+
+            System.out.println("Question: " + getQuestion.call());
 
             String answer = console.nextLine();
             System.out.println("Your answer: " + answer);
 
-            if (!answer.equals(this.getCorrectAnswer())) {
-                System.out.println(answer + " is wrong answer ;(. Correct answer was " + this.getCorrectAnswer() + "." +
+            if (!answer.equals(getCorrectAnswer.call())) {
+                System.out.println(answer + " is wrong answer ;(. Correct answer was " + getCorrectAnswer.call() + "." +
                         " Let's try again, " + name + "!");
                 return;
             }
@@ -29,8 +41,3 @@ public abstract class Engine {
         System.out.println("Congratulations, " + name + "!");
     }
 }
-
-
-
-
-

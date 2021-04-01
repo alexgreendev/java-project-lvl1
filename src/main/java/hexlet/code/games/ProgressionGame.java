@@ -1,19 +1,17 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
-
 import java.util.ArrayList;
 import java.util.Random;
 
-public class ProgressionGame extends Engine {
+public class ProgressionGame {
 
-    private String correctAnswer;
+    private static String correctAnswer;
 
-    public String getDescription() {
+    public static String getDescription() {
         return "What number is missing in the progression?";
     }
 
-    public String getQuestion() {
+    public static String getQuestion() {
         int maxSize = 10;
 
         ArrayList<String> progression = new ArrayList<String>( );
@@ -37,8 +35,8 @@ public class ProgressionGame extends Engine {
     }
 
 
-    public String getCorrectAnswer() {
-        return this.correctAnswer;
+    public static String getCorrectAnswer() {
+        return correctAnswer;
     }
 
 }

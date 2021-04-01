@@ -1,32 +1,30 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
-
 import java.util.Random;
 
 
-public class GCDGame extends Engine {
-    private String correctAnswer;
+public class GCDGame {
+    private static String correctAnswer;
 
-    public String getDescription() {
+    public static String getDescription() {
         return "Find the greatest common divisor of given numbers.";
     }
 
-    public String getQuestion() {
+    public static String getQuestion() {
         Random random = new Random();
         int x = 1 + random.nextInt(100);
         int y = 1 + random.nextInt(100);
 
-        correctAnswer = Integer.toString(this.maxDiv(x, y));
+        correctAnswer = Integer.toString(maxDiv(x, y));
 
         return x + " " + y;
     }
 
-    public String getCorrectAnswer() {
+    public static String getCorrectAnswer() {
         return correctAnswer;
     }
 
-    private int maxDiv(int x, int y) {
+    private static int maxDiv(int x, int y) {
 
             while (y != 0) {
                 int tmp = x % y;

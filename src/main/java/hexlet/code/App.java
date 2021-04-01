@@ -6,7 +6,7 @@ import java.util.Scanner;
 import hexlet.code.games.*;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         printMenu();
         choiceGame();
@@ -21,12 +21,10 @@ public class App {
         System.out.println(welcomeText);
     }
 
-    private static void choiceGame() {
+    private static void choiceGame() throws Exception {
 
         Scanner console = new Scanner(System.in);
         int numGame = console.nextInt();
-
-        String userName = Cli.userName();
 
         switch (numGame) {
             case 0:
@@ -35,24 +33,39 @@ public class App {
                 Cli.userName();
                 break;
             case 2:
-                EvenGame evenGame = new EvenGame();
-                evenGame.runGame(userName);
+                Engine.runGame(
+                        EvenGame::getDescription,
+                        EvenGame::getQuestion,
+                        EvenGame::getCorrectAnswer
+                );
                 break;
             case 3:
-                CalcGame calcGame = new CalcGame();
-                calcGame.runGame(userName);
+                Engine.runGame(
+                        CalcGame::getDescription,
+                        CalcGame::getQuestion,
+                        CalcGame::getCorrectAnswer
+                );
                 break;
             case 4:
-                GCDGame gcdGame = new GCDGame();
-                gcdGame.runGame(userName);
+                Engine.runGame(
+                        GCDGame::getDescription,
+                        GCDGame::getQuestion,
+                        GCDGame::getCorrectAnswer
+                );
                 break;
             case 5:
-                ProgressionGame progressionGame = new ProgressionGame();
-                progressionGame.runGame(userName);
+                Engine.runGame(
+                        ProgressionGame::getDescription,
+                        ProgressionGame::getQuestion,
+                        ProgressionGame::getCorrectAnswer
+                );
                 break;
             case 6:
-                NumberIsPrimeGame numberIsPrimeGame = new NumberIsPrimeGame();
-                numberIsPrimeGame.runGame(userName);
+                Engine.runGame(
+                        NumberIsPrimeGame::getDescription,
+                        NumberIsPrimeGame::getQuestion,
+                        NumberIsPrimeGame::getCorrectAnswer
+                );
                 break;
         }
     }

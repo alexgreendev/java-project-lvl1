@@ -1,18 +1,17 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
 import java.util.Random;
 
-public class NumberIsPrimeGame extends Engine {
+public class NumberIsPrimeGame {
 
-    private String correctAnswer;
+    private static String correctAnswer;
 
-    public String getDescription() {
+    public static String getDescription() {
 
         return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     }
 
-    public String getQuestion() {
+    public static String getQuestion() {
 
         Random random = new Random();
         int x = 1 + random.nextInt(10);
@@ -23,12 +22,12 @@ public class NumberIsPrimeGame extends Engine {
 
     }
 
-    public String getCorrectAnswer() {
+    public static String getCorrectAnswer() {
 
-        return this.correctAnswer;
+        return correctAnswer;
     }
 
-    public static String checkSimple(int i) {
+    private static String checkSimple(int i) {
 
         if ( i <= 1 || i % 2 == 0) {
             return "no";

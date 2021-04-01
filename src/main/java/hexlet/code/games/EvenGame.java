@@ -1,33 +1,32 @@
 package hexlet.code.games;
 
 import java.util.Random;
-import hexlet.code.Engine;
 
-public class EvenGame extends Engine {
-    private String correctAnswer;
+public class EvenGame {
+    private static String correctAnswer;
 
-    public String getDescription() {
+    public static String getDescription() {
 
         return "Answer 'yes' if number even otherwise answer 'no'.";
     }
 
-    public String getQuestion() {
+    public static String getQuestion() {
 
         Random random = new Random();
         int x = 1 + random.nextInt(25);
 
         if(x % 2 == 0) {
-            this.correctAnswer = "yes";
+            correctAnswer = "yes";
         }
         if(x % 2 != 0) {
-            this.correctAnswer = "no";
+            correctAnswer = "no";
         }
 
         return String.valueOf(x);
     }
 
-    public String getCorrectAnswer() {
-        return this.correctAnswer;
+    public static String getCorrectAnswer() {
+        return correctAnswer;
     }
 
 }
