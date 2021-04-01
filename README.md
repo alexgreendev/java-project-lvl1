@@ -1,7 +1,7 @@
 
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/alexgreendev/java-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/alexgreendev/java-project-lvl1/actions)
-
+[![Maintainability](https://api.codeclimate.com/v1/badges/328eaacb9ebc26ff26a8/maintainability)](https://codeclimate.com/github/alexgreendev/java-project-lvl1/maintainability)
 ### Even Game
 [![asciicast](https://asciinema.org/a/404376.svg)](https://asciinema.org/a/404376)
 

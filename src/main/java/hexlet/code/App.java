@@ -8,18 +8,27 @@ import hexlet.code.games.*;
 public class App {
     public static void main(String[] args) {
 
-        String userName = Cli.userName();
+        printMenu();
+        choiceGame();
+    }
+
+    private static void printMenu() {
 
         String welcomeText = "Please enter the game number and press Enter." + "\n1 - Greet" + "\n2 - Even" +
                 "\n3 - Calc" + "\n4 - GCD" + "\n5 - Progression" + "\n6 - Prime" +
                 "\n0 - Exit" + "\nYour choice: ";
+
         System.out.println(welcomeText);
+    }
+
+    private static void choiceGame() {
 
         Scanner console = new Scanner(System.in);
         int numGame = console.nextInt();
 
-        switch (numGame) {
+        String userName = Cli.userName();
 
+        switch (numGame) {
             case 0:
                 break;
             case 1:
