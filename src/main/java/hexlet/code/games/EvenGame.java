@@ -1,44 +1,33 @@
 package hexlet.code.games;
 
 import java.util.Random;
-import java.util.Scanner;
 import hexlet.code.Engine;
 
-public class EvenGame extends Engine{
+public class EvenGame extends Engine {
+    private String correctAnswer;
 
-    public void even(String name) {
+    public String getDescription() {
 
-        System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
-        this.runGame(name);
-
+        return "Answer 'yes' if number even otherwise answer 'no'.";
     }
-    @Override
-    public void runGame(String name) {
 
-        for(int count = 1; count < 4; count++) {
+    public String getQuestion() {
 
-            Random random = new Random();
-            int x = 1 + random.nextInt(25);
-            System.out.println("Question: " + x);
+        Random random = new Random();
+        int x = 1 + random.nextInt(25);
 
-            Scanner console = new Scanner(System.in);
-            String answer = console.nextLine();
-
-            System.out.println("Your answer: " + answer);
-
-            if (x % 2 == 0 && answer.equals("yes") || x % 2 != 0 && answer.equals("no")) {
-                System.out.println("Correct!");
-
-                if (count == 3) {
-                    System.out.println("Congratulations, " + name + "!");
-                    return;
-                }
-
-            } else {
-                System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.\n" +
-                        "Let's try again, " + name + "!");
-                return;
-            }
+        if(x % 2 == 0) {
+            this.correctAnswer = "yes";
         }
+        if(x % 2 != 0) {
+            this.correctAnswer = "no";
+        }
+
+        return String.valueOf(x);
     }
+
+    public String getCorrectAnswer() {
+        return this.correctAnswer;
+    }
+
 }

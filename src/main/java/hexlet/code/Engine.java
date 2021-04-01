@@ -1,25 +1,23 @@
 package hexlet.code;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public abstract class Engine {
+    public abstract String getDescription();
+    public abstract String getQuestion();
+    public abstract String getCorrectAnswer();
 
     public void runGame(String name) {
+        System.out.println(this.getDescription());
 
-
-        for (int count = 1; count < 4; count++) {
-            boolean result = true;
-            Random random = new Random();
-            int x = 1 + random.nextInt(25);
-            System.out.println("Question: " + x);
-
+        for(int count = 1; count < 5; count++) {
             Scanner console = new Scanner(System.in);
-            String answer = console.nextLine();
+            System.out.println("Question: " + this.getQuestion());
 
+            String answer = console.nextLine();
             System.out.println("Your answer: " + answer);
 
-            if (answer.equals(result)) {
+            if (answer.equals(this.getCorrectAnswer())) {
                 System.out.println("Correct!");
 
                 if (count == 3) {
@@ -28,12 +26,11 @@ public abstract class Engine {
                 }
 
             } else {
-                System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.\n" +
-                        "Let's try again, " + name + "!");
+                System.out.println(answer + " is wrong answer ;(. Correct answer was " + this.getCorrectAnswer() + "." +
+                        " Let's try again, " + name + "!");
                 return;
             }
         }
-
     }
 }
 
