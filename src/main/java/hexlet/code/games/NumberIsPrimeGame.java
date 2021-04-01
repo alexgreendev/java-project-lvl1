@@ -15,7 +15,7 @@ public class NumberIsPrimeGame extends Engine {
     public String getQuestion() {
 
         Random random = new Random();
-        int x = 1 + random.nextInt(25);
+        int x = 1 + random.nextInt(10);
 
         correctAnswer = checkSimple(x);
 
@@ -29,16 +29,17 @@ public class NumberIsPrimeGame extends Engine {
     }
 
     public static String checkSimple(int i) {
-        if ( i <= 1)
+
+        if ( i <= 1 || i % 2 == 0) {
             return "no";
-        else if (i == 3)
-            return "yes";
-        else if (i % 2 == 0 || i % 3 == 0)
-            return "no";
-        int n = 5;
-        while (n * n <= i){
-            if (i % n == 0 || i % (n + 2) == 0)
+        }
+
+        int n = 3;
+        while (n * n <= i) {
+
+            if (i % n == 0 || i % (n + 2) == 0) {
                 return "no";
+            }
             n = n + 6;
         }
         return "yes";

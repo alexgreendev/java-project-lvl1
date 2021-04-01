@@ -10,27 +10,23 @@ public abstract class Engine {
     public void runGame(String name) {
         System.out.println(this.getDescription());
 
-        for(int count = 1; count < 5; count++) {
+        for(int count = 1; count < 4; count++) {
             Scanner console = new Scanner(System.in);
             System.out.println("Question: " + this.getQuestion());
 
             String answer = console.nextLine();
             System.out.println("Your answer: " + answer);
 
-            if (answer.equals(this.getCorrectAnswer())) {
-                System.out.println("Correct!");
-
-                if (count == 3) {
-                    System.out.println("Congratulations, " + name + "!");
-                    return;
-                }
-
-            } else {
+            if (!answer.equals(this.getCorrectAnswer())) {
                 System.out.println(answer + " is wrong answer ;(. Correct answer was " + this.getCorrectAnswer() + "." +
                         " Let's try again, " + name + "!");
                 return;
             }
+
+            System.out.println("Correct!");
         }
+
+        System.out.println("Congratulations, " + name + "!");
     }
 }
 
