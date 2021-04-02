@@ -5,6 +5,7 @@ import java.util.Random;
 public class NumberIsPrimeGame {
 
     private static String correctAnswer;
+    private static final int NUM_RANDOM = 10;
 
     public static String getDescription() {
 
@@ -14,7 +15,7 @@ public class NumberIsPrimeGame {
     public static String getQuestion() {
 
         Random random = new Random();
-        int x = 1 + random.nextInt(10);
+        int x = 1 + random.nextInt(NUM_RANDOM);
 
         correctAnswer = checkSimple(x);
 
@@ -27,22 +28,23 @@ public class NumberIsPrimeGame {
         return correctAnswer;
     }
 
-    private static String checkSimple(int i) {
+    private static String checkSimple(final int num) {
 
-        if ( i <= 1) {
+        final int stepIncrease = 6;
+        final int startNumber = 3;
+
+        if (num <= 1) {
             return "no";
         }
-        if(i > 2 && i % 2 == 0) {
+        if (num > 2 && num % 2 == 0) {
             return "no";
         }
 
-        int n = 3;
-        while (n * n <= i) {
+        for (int i = startNumber; i * i <= num; i += stepIncrease) {
 
-            if (i % n == 0 || i % (n + 2) == 0) {
+            if (num % i == 0 || num % (i + 2) == 0) {
                 return "no";
             }
-            n = n + 6;
         }
         return "yes";
     }

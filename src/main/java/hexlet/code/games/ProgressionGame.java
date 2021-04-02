@@ -1,34 +1,38 @@
 package hexlet.code.games;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
 public class ProgressionGame {
 
     private static String correctAnswer;
-    public static Random random = new Random();
+    private static Random random = new Random();
+    private static final int MAX_SIZE = 10;
+    private static final int MIN_INDEX_RANDOM = 3;
+    private static final int MAX_SIZE_RANDOM = 10;
+    private static final int MAX_RANDOM = 25;
+
     public static String getDescription() {
+
         return "What number is missing in the progression?";
     }
 
     public static String getQuestion() {
-        int maxSize = 10;
-        int minRandomIndex = 3;
 
-        ArrayList<String> progression = new ArrayList<String>( );
+        ArrayList<String> progression = new ArrayList<String>();
 
-        int step = 1 + random.nextInt(10);
-        int progressionItem = 1 + random.nextInt(25);
+        int step = 1 + random.nextInt(MAX_SIZE_RANDOM);
+        int progressionItem = 1 + random.nextInt(MAX_RANDOM);
 
-
-        while (progression.size() != maxSize) {
+        while (progression.size() != MAX_SIZE) {
             progression.add(Integer.toString(progressionItem));
             progressionItem += step;
         }
 
-        int randomIndex = minRandomIndex + random.nextInt(maxSize - minRandomIndex);
-        correctAnswer = String.valueOf(Integer.parseInt(progression.get(randomIndex)));
+        int randomIndex = MIN_INDEX_RANDOM + random.nextInt(
+                MAX_SIZE - MIN_INDEX_RANDOM);
+        correctAnswer = String.valueOf(
+                Integer.parseInt(progression.get(randomIndex)));
         progression.set(randomIndex, "..");
 
         return progression.toString()
