@@ -32,6 +32,9 @@ public class NumberIsPrimeGame {
         if ( i <= 1) {
             return "no";
         }
+        if(i > 2 && i % 2 == 0) {
+            return "no";
+        }
 
         int n = 3;
         while (n * n <= i) {
