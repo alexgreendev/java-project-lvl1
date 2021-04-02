@@ -29,7 +29,7 @@ public class NumberIsPrimeGame {
 
     private static String checkSimple(int i) {
 
-        if ( i <= 1 || i % 2 == 0) {
+        if ( i <= 1) {
             return "no";
         }
 
