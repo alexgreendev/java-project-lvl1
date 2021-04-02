@@ -7,18 +7,21 @@ import java.util.concurrent.Callable;
 
 public class Engine {
 
+    public static Scanner console = new Scanner(System.in);
+
     public static <T> void runGame(
+
             Callable<String> getDescription,
             Callable<String> getQuestion,
             Callable<String> getCorrectAnswer) throws Exception {
 
         System.out.println("Welcome to the Brain Games! " + "\nMay I have your name? ");
 
-        Scanner console = new Scanner(System.in);
         String name = console.nextLine();
 
         String text = name + "\nHello, " + name + "!";
         System.out.println(text);
+
 
         System.out.println(getDescription.call());
 
