@@ -34,7 +34,7 @@ public class ProgressionGame {
         return progression.toString()
                 .replace("[", "")
                 .replace("]", "")
-                .replace(",", " ");
+                .replace(",", "");
     }
 
     public static String getCorrectAnswer() {
